@@ -186,10 +186,9 @@ export default function Home() {
           housing collectives, and distributed technologies.
         </p>
         <p className="hero__mission">
-          From Catalonia, I design the systems and pilots that advance
-          housing and land commons, drawing on years across co-operative
-          incubation, place-based policy, bio-architecture and edge
-          technologies.
+          I design the systems and pilots that advance housing and land
+          commons, drawing on years across co-operative incubation,
+          place-based policy, bio-architecture and edge technologies.
         </p>
       </header>
 
@@ -205,8 +204,9 @@ export default function Home() {
             <h3 className="register__title">Where the practice converges.</h3>
             <p className="register__body">
               Designing the mechanisms and running the pilots that move
-              housing and land commons forward. Komma is where most of
-              this work lives now.
+              housing and land commons forward through Komma: applied
+              research, demonstration and digital scaffolding for
+              communities. Komma is registered in Germany and Liechtenstein.
             </p>
           </div>
           <div>
@@ -414,8 +414,9 @@ export default function Home() {
           <div className="footer__col">
             <span className="footer__label">Based</span>
             <p className="footer__based">
-              Catalonia. Working across rural municipalities, housing
-              co-operatives, foundations and venture collectives.
+              Clara is based in Catalonia. Komma is registered in Germany
+              and Liechtenstein. Working with municipalities, foundations
+              and venture collectives across Europe and beyond.
             </p>
           </div>
         </div>
