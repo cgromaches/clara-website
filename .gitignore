@@ -31,5 +31,10 @@ Thumbs.db
 *.swp
 *.swo
 
+# Clara's private working materials, not site content
+Current context/
+DESIGN_BRIEF.md
+/tmp/
+
 # TypeScript
 *.tsbuildinfo
