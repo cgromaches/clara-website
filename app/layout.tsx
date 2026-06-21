@@ -1,20 +1,45 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const SITE_URL = "https://claragromaches.com";
+const TITLE = "Clara Gromaches";
+const DESCRIPTION =
+  "Architect, designing systems and pilots for housing and land commons.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://claragromaches.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Clara Gromaches",
+    default: TITLE,
     template: "%s · Clara Gromaches",
   },
-  description:
-    "Architect working at the intersection of regenerative architecture, housing collectives, and distributed technologies.",
+  description: DESCRIPTION,
+  applicationName: TITLE,
+  authors: [{ name: "Clara Gromaches", url: SITE_URL }],
+  creator: "Clara Gromaches",
+  publisher: "Clara Gromaches",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Clara Gromaches",
-    description:
-      "Architect working at the intersection of regenerative architecture, housing collectives, and distributed technologies.",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: SITE_URL,
+    siteName: TITLE,
     type: "website",
     locale: "en_GB",
+    images: [
+      { url: "/apple-touch-icon.png", width: 180, height: 180, alt: TITLE },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: TITLE,
+    description: DESCRIPTION,
+    creator: "@claragromaches",
+    images: ["/apple-touch-icon.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   icons: {
     icon: [
@@ -25,6 +50,47 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
+  formatDetection: { telephone: false, email: false, address: false },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#f4efe4",
+  colorScheme: "light",
+  width: "device-width",
+  initialScale: 1,
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Clara Gromaches",
+  jobTitle: "Architect",
+  description: DESCRIPTION,
+  url: SITE_URL,
+  image: `${SITE_URL}/apple-touch-icon.png`,
+  worksFor: {
+    "@type": "Organization",
+    name: "Komma",
+    url: "https://komma.systems",
+  },
+  sameAs: [
+    "https://twitter.com/claragromaches",
+    "https://www.linkedin.com/in/cgromaches/",
+    "https://www.instagram.com/claragromaches/",
+  ],
+  knowsAbout: [
+    "Housing commons",
+    "Land commons",
+    "Regenerative architecture",
+    "Bio-architecture",
+    "Co-operative housing",
+    "Web3",
+    "Blockchain",
+    "AI",
+    "Stewardship",
+    "Place-based policy",
+  ],
+  homeLocation: { "@type": "Place", name: "Catalonia" },
 };
 
 export default function RootLayout({
@@ -44,6 +110,10 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
       <body>{children}</body>

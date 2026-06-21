@@ -18,6 +18,12 @@ type WritingItem = {
 
 const talks: WritingItem[] = [
   {
+    date: "2025",
+    title: "Decommodifying housing and land",
+    kind: "Collective Finance Gathering 3, Commons Hub Austria",
+    href: "https://luma.com/8b7u93xt?tk=zBWUVi",
+  },
+  {
     date: "2024",
     title:
       "Housing & Lands Commons for Regen, Stable and Affordable Living: Web3 Opportunities",
@@ -67,8 +73,8 @@ const talks: WritingItem[] = [
 const research: WritingItem[] = [
   {
     date: "2024",
-    title: "Network Sovereignties",
-    kind: "SOAM Residency",
+    title: "Network Sovereignties as Vehicles for Land and Housing Commons: The Case of Catalonian Fundació Emprius",
+    kind: "SOAM Residency, with BlockchainGov. Edited by Sofia Cossar.",
     href: "https://soam.earth/residency/",
   },
   {
@@ -103,7 +109,7 @@ const press: WritingItem[] = [
   {
     date: "2022",
     title: "No Bosses: What It’s Like Working at a DAO",
-    kind: "Time",
+    kind: "Time Magazine",
     href: "https://time.com/6146406/working-at-dao-dorg/",
   },
   {
@@ -113,6 +119,15 @@ const press: WritingItem[] = [
     kind: "Arrels Magazine (Catalan)",
     href:
       "https://arrels.info/noticia/els-projectes-dhabitatge-cooperatiu-poden-ser-tan-potents-que-acabin-regenerant-la-vida-dun-poble/",
+  },
+];
+
+const workshops: WritingItem[] = [
+  {
+    date: "2026",
+    title: "Thresholds Workshop",
+    kind: "The Hus Institute, Vaduz",
+    href: "https://thehus.institute/",
   },
 ];
 
@@ -182,13 +197,12 @@ export default function Home() {
       <header className="hero section">
         <h1 className="hero__name">Clara Gromaches</h1>
         <p className="hero__role">
-          Architect working at the intersection of regenerative architecture,
-          housing collectives, and distributed technologies.
+          Architect, designing systems and pilots for housing and land
+          commons.
         </p>
         <p className="hero__mission">
-          I design the systems and pilots that advance housing and land
-          commons, drawing on years across co-operative incubation,
-          place-based policy, bio-architecture and edge technologies.
+          Drawing on years of co-operative incubation, place-based policy,
+          bio-architecture practice and edge technologies.
         </p>
       </header>
 
@@ -203,10 +217,17 @@ export default function Home() {
             </span>
             <h3 className="register__title">Where the practice converges.</h3>
             <p className="register__body">
-              Designing the mechanisms and running the pilots that move
-              housing and land commons forward through Komma: applied
-              research, demonstration and digital scaffolding for
-              communities. Komma is registered in Germany and Liechtenstein.
+              Designing the legal, social, economic and technical mechanisms
+              that advance housing and land commons, and running the pilots
+              that demonstrate them. Through{" "}
+              <a
+                href="https://komma.systems"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Komma
+              </a>
+              , registered in Germany and Liechtenstein.
             </p>
           </div>
           <div>
@@ -217,13 +238,13 @@ export default function Home() {
               Edge technologies
             </span>
             <h3 className="register__title">
-              Cooperative business at the frontier.
+              Digital cooperative business.
             </h3>
             <p className="register__body">
-              Running cooperative business on-chain at dOrg since 2021,
-              advising on co-living architecture, and prototyping community
-              housing DAOs. Currently moving into AI-runned business and
-              coordination.
+              Web3, blockchain and AI for cooperative business. Running
+              cooperative business on-chain at dOrg since 2021, advising on
+              co-living architecture, and prototyping community housing DAOs.
+              Currently moving into AI-runned business and coordination.
             </p>
           </div>
           <div>
@@ -233,22 +254,21 @@ export default function Home() {
             >
               Housing commons
             </span>
-            <h3 className="register__title">
-              Co-operative incubation, policy and stewardship.
-            </h3>
+            <h3 className="register__title">Coordinating viability.</h3>
             <p className="register__body">
-              Co-op incubation, stewardship-model housing, and policy work with
-              rural municipalities, foundations and tenants&rsquo;
-              organisations in Catalonia.
+              Project viability research, community incubation and policy
+              work for social housing co-ops, alongside rural municipalities,
+              foundations and tenants&rsquo; organisations in Catalonia.
             </p>
           </div>
           <div>
             <span className="eyebrow">Regenerative architecture</span>
             <h3 className="register__title">A contemporary vernacular.</h3>
             <p className="register__body">
-              Bio-architecture: traditional materials in a contemporary
-              architectural language. Earth, clay and lime as regeneration.
-              Photography to give this kind of work its due.
+              Bio-architecture: vernacular construction reinterpreted in a
+              contemporary architectural language, with native materials of
+              proven durability, allowed to age with dignity. Photography to
+              give this kind of work its due.
             </p>
           </div>
         </div>
@@ -404,14 +424,14 @@ export default function Home() {
           Talks, writing, teaching.
         </h2>
         <CommsGroup label="Talks" items={talks} />
+        <CommsGroup label="Workshops" items={workshops} />
         <CommsGroup label="Research" items={research} />
         <CommsGroup label="Press & interviews" items={press} />
         <CommsGroup label="Teaching" items={teaching} />
       </section>
 
       <footer className="section" id="contact">
-        <span className="eyebrow">Contact</span>
-        <h2 className="h2">In conversation.</h2>
+        <h2 className="h2">Contact</h2>
         <div className="footer__row">
           <div className="footer__col">
             <span className="footer__label">Reach</span>
@@ -451,13 +471,6 @@ export default function Home() {
               and venture collectives across Europe and beyond.
             </p>
           </div>
-        </div>
-        <div className="colophon">
-          <span>
-            Set in Source Serif 4 and JetBrains Mono. Cream paper, near-black
-            ink.
-          </span>
-          <span>Catalonia, 2026</span>
         </div>
       </footer>
     </div>

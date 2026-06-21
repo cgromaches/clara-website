@@ -85,6 +85,20 @@ export default function ProjectPage({ params }: PageProps) {
           </div>
         )}
 
+        {p.video && gallery.length === 0 && (
+          <div className="project-detail__video">
+            <div className="project-detail__video-frame">
+              <iframe
+                src={p.video.embed}
+                title={`${p.title}: ${p.video.label}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        )}
+
         <p className="project-detail__body">{p.body}</p>
 
         {p.cta && (

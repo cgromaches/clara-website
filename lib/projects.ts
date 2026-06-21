@@ -38,6 +38,12 @@ export type ProjectCta = {
   href: string;
 };
 
+export type ProjectVideo = {
+  label: string;
+  embed: string;
+  href: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -48,6 +54,7 @@ export type Project = {
   partners?: string[];
   links?: ProjectLink[];
   cta?: ProjectCta;
+  video?: ProjectVideo;
   cover?: string;
   coverAlt?: string;
 };
@@ -96,18 +103,24 @@ export const projects: Project[] = [
     slug: "exclosure",
     title: "Exclosure",
     year: "active",
-    place: "Catalonia, Berlin, Mumbai, Costa Brava",
+    place: "Catalonia, Berlin",
     register: "system-design",
     body: "Komma inquiry. Thinking through, with collaborators rooted in different place-based realities, how a protective institutional membrane can hold community arrangements safe inside the larger rules.",
-    links: [{ label: "exclosu.re", href: "https://www.exclosu.re/", kind: "site" }],
+    links: [
+      { label: "exclosu.re", href: "https://www.exclosu.re/", kind: "site" },
+      { label: "komma.systems", href: "https://komma.systems", kind: "site" },
+    ],
   },
   {
     slug: "tourism-housing",
     title: "Tourism × Housing",
-    year: "active",
+    year: "looking for partners",
     place: "Catalonia",
     register: "system-design",
-    body: "A Komma pilot exploring whether tourism revenue can be redirected toward permanently affordable housing, as shared responsibility, before displacement begins. The mechanism combines patient up-front capital, ongoing tourism-aligned contributions, auditable housing outcomes and a locally accountable governance layer. Starting in Catalonia, where tourism moves €10.4bn a year and 25% of the tourist tax goes to housing. Phase 1, Sensing in Progress: mapping partners across municipalities, housing co-ops, tourism operators and ethical finance.",
+    body: "A Komma pilot exploring how tourism revenue can support permanently affordable housing, before displacement begins. Patient capital, ongoing tourism-aligned contributions, auditable outcomes and locally accountable governance. Starting in Catalonia, looking for partners across municipalities, housing co-ops, tourism operators and ethical finance.",
+    links: [
+      { label: "komma.systems", href: "https://komma.systems", kind: "site" },
+    ],
     cta: {
       label: "Partner inquiries",
       href: "mailto:clara@komma.systems?subject=Tourism × Housing pilot — partnership inquiry",
@@ -116,10 +129,13 @@ export const projects: Project[] = [
   {
     slug: "dharavi",
     title: "Ex:Risk Dharavi",
-    year: "active",
+    year: "exploratory phase",
     place: "Mumbai",
     register: "system-design",
-    body: "Komma exploratory inquiry. Blockchain-based civic infrastructure designed to act before displacement, to reinforce Dharavi residents' rights against dispossession. Three possible mechanisms, all co-designed with residents: a community cadastre documenting lived tenure, a governance layer giving collective actors recognised voice, and an evidencing layer that defends Dharavi's place-based economy (estimated at $0.7 to $1B a year). Currently mapping local partners. Open thread.",
+    body: "Komma exploratory inquiry. Civic infrastructure prototype to reinforce Dharavi residents' rights against dispossession, designed to act before displacement. Three possible mechanisms co-designed with residents: a community cadastre, a governance layer, and an evidencing layer for the lane-based economy. Open thread.",
+    links: [
+      { label: "komma.systems", href: "https://komma.systems", kind: "site" },
+    ],
   },
   {
     slug: "dorg",
@@ -160,7 +176,7 @@ export const projects: Project[] = [
     year: "ongoing",
     place: "Fortià, Catalonia",
     register: "housing-commons",
-    body: "Incubation of project and community, alongside architecture, economic and legal study, to develop a social co-op housing in stewardship model: 16 new-built homes with backyards on plots leased by the city council.",
+    body: "Project viability research and community incubation for a social housing co-op in stewardship model. 16 new-built homes with backyards on plots leased by the city council.",
     partners: [
       "Ajuntament de Fortià",
       "Diputació de Girona",
@@ -193,7 +209,7 @@ export const projects: Project[] = [
     year: "ongoing",
     place: "La Cellera de Ter, Catalonia",
     register: "housing-commons",
-    body: "Incubation of project and community, around the refurbishment of two municipal buildings into stewardship-model co-ops. Currently advancing in one property as a three-apartment co-operative.",
+    body: "Project viability research and community incubation for two social housing co-ops in stewardship model, refurbishing municipal buildings. Currently advancing in one property as a three-apartment co-operative.",
     partners: [
       "Ajuntament de la Cellera de Ter",
       "Diputació de Girona",
@@ -235,7 +251,7 @@ export const projects: Project[] = [
     title: "Sarrià de Ter",
     place: "Sarrià de Ter, Catalonia",
     register: "housing-commons",
-    body: "Architecture, economic and legal study for an eight-apartment block with common spaces and shared facilities, on a plot leased by the city council.",
+    body: "Project viability research for an eight-apartment social housing co-op with common spaces and shared facilities, on a plot leased by the city council.",
     partners: [
       "Ajuntament de Sarrià de Ter",
       "Diputació de Girona",
@@ -248,7 +264,7 @@ export const projects: Project[] = [
     title: "La Pera",
     place: "La Pera, Catalonia",
     register: "housing-commons",
-    body: "Architecture, economic and legal study to refurbish an abandoned rural home into a ten-apartment block with shared facilities, on a property leased by the city council.",
+    body: "Project viability research for a ten-apartment social housing co-op, refurbishing an abandoned rural home leased by the city council.",
     partners: [
       "Ajuntament de la Pera",
       "Diputació de Girona",
@@ -268,7 +284,7 @@ export const projects: Project[] = [
     title: "Sant Miquel de Campmajor",
     place: "Sant Miquel de Campmajor, Catalonia",
     register: "housing-commons",
-    body: "Urban and legal analysis to develop policies for a rural council to enhance affordable private and social housing commons in abandoned old buildings.",
+    body: "Urban and legal policy research to help a rural council activate affordable and social housing commons in abandoned old buildings.",
     partners: [
       "Ajuntament de Sant Miquel de Campmajor",
       "Diputació de Girona",
@@ -282,14 +298,14 @@ export const projects: Project[] = [
     year: "ongoing",
     place: "Catalonia",
     register: "housing-commons",
-    body: "Member and advisor. A network of sovereign rural intentional housing communities (co-op entities wrapped in a foundation) holding land, housing and knowledge as commons for long-term price stability.",
+    body: "Member and advisor. The foundation builds rural commons: acquiring and ceding housing to community projects, stewarding productive lands, and promoting shared tools for rural life. Its guiding principles are communalism and ruralism.",
+    video: {
+      label: "Introduction on YouTube",
+      embed: "https://www.youtube-nocookie.com/embed/Jp5L2uKz1ks",
+      href: "https://www.youtube.com/watch?v=Jp5L2uKz1ks",
+    },
     links: [
       { label: "emprius.cat", href: "https://emprius.cat/", kind: "site" },
-      {
-        label: "Introduction on YouTube",
-        href: "https://www.youtube.com/watch?v=Jp5L2uKz1ks",
-        kind: "video",
-      },
     ],
   },
   {
@@ -446,6 +462,7 @@ export const HERO_ORDER: string[] = [
   "sant-miquel-de-campmajor",
   "emprius-fundacio",
   "earth-house",
+  "girona-house",
   "verges-house",
 ];
 
