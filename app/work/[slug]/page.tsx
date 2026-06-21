@@ -87,6 +87,18 @@ export default function ProjectPage({ params }: PageProps) {
 
         <p className="project-detail__body">{p.body}</p>
 
+        {p.cta && (
+          <a
+            href={p.cta.href}
+            className="project-detail__cta"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="project-detail__cta-label">{p.cta.label}</span>
+            <span className="project-detail__cta-arrow">→</span>
+          </a>
+        )}
+
         {p.partners && p.partners.length > 0 && (
           <div className="project-detail__partners">
             <span className="eyebrow project-detail__partners-label">

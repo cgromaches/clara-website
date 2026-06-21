@@ -217,12 +217,13 @@ export default function Home() {
               Edge technologies
             </span>
             <h3 className="register__title">
-              Coordination, at scale.
+              Cooperative business at the frontier.
             </h3>
             <p className="register__body">
-              Web3 and AI let community coordination scale: automating
-              routine tasks, and forming a collective brain that thinks
-              across distance and time.
+              Running cooperative business on-chain at dOrg since 2021,
+              advising on co-living architecture, and prototyping community
+              housing DAOs. Currently moving into AI-runned business and
+              coordination.
             </p>
           </div>
           <div>
@@ -258,69 +259,100 @@ export default function Home() {
           Selected works
         </h2>
 
-        {[null].map(() => {
+        {(() => {
           const items = getHeroProjects();
-          return (
-            <div key="hero" className="work__group">
-              <div className="work__grid">
-                {items.map((p) => {
-                  const gallery = getProjectGallery(p.slug);
-                  const hasGallery = gallery.length > 0;
-                  return (
-                    <Link
-                      key={p.slug}
-                      href={`/work/${p.slug}`}
-                      className={`project${hasGallery ? " project--has-gallery" : ""}`}
-                    >
-                      <div className="project__text">
-                        <span
-                          className="project__indicator"
-                          aria-hidden="true"
-                        >
-                          →
-                        </span>
-                        <h3 className="project__title">{p.title}</h3>
-                        <p className="project__body">{p.body}</p>
-                        {p.partners && p.partners.length > 0 && (
-                          <p className="project__partners">
-                            <span className="project__partners-label">
-                              Partners
-                            </span>{" "}
-                            {p.partners.join(", ")}
-                          </p>
-                        )}
-                        <span className="project__meta">
-                          {p.place}
-                          {p.year !== undefined ? ` · ${p.year}` : ""}
-                        </span>
-                      </div>
-                      {hasGallery && (
-                        <div
-                          className="project__gallery"
-                          aria-label={`${p.title} gallery`}
-                        >
-                          {gallery.map((src, i) => (
-                            <figure
-                              key={src}
-                              className="project__gallery-item"
-                            >
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img
-                                src={src}
-                                alt={`${p.title}, ${i + 1} of ${gallery.length}`}
-                                loading="lazy"
-                              />
-                            </figure>
-                          ))}
-                        </div>
-                      )}
-                    </Link>
-                  );
-                })}
-              </div>
+          type Group =
+            | { kind: "row"; project: (typeof items)[number]; gallery: string[] }
+            | { kind: "pair"; projects: (typeof items)[number][] };
+          const groups: Group[] = [];
+          let buffer: (typeof items)[number][] = [];
+          const flush = () => {
+            while (buffer.length >= 2) {
+              groups.push({ kind: "pair", projects: buffer.slice(0, 2) });
+              buffer = buffer.slice(2);
+            }
+            if (buffer.length === 1) {
+              groups.push({ kind: "pair", projects: buffer });
+              buffer = [];
+            }
+          };
+          for (const p of items) {
+            const gallery = getProjectGallery(p.slug);
+            if (gallery.length > 0) {
+              flush();
+              groups.push({ kind: "row", project: p, gallery });
+            } else {
+              buffer.push(p);
+            }
+          }
+          flush();
+
+          const renderProjectInner = (p: (typeof items)[number]) => (
+            <div className="project__text">
+              <span className="project__indicator" aria-hidden="true">
+                →
+              </span>
+              <h3 className="project__title">{p.title}</h3>
+              <p className="project__body">{p.body}</p>
+              {p.partners && p.partners.length > 0 && (
+                <p className="project__partners">
+                  <span className="project__partners-label">Partners</span>{" "}
+                  {p.partners.join(", ")}
+                </p>
+              )}
+              <span className="project__meta">
+                {p.place}
+                {p.year !== undefined ? ` · ${p.year}` : ""}
+              </span>
             </div>
           );
-        })}
+
+          return (
+            <div className="work__grid">
+              {groups.map((g, idx) => {
+                if (g.kind === "pair") {
+                  return (
+                    <div key={`pair-${idx}`} className="work__pair">
+                      {g.projects.map((p) => (
+                        <Link
+                          key={p.slug}
+                          href={`/work/${p.slug}`}
+                          className="project project--compact"
+                        >
+                          {renderProjectInner(p)}
+                        </Link>
+                      ))}
+                    </div>
+                  );
+                }
+                return (
+                  <Link
+                    key={g.project.slug}
+                    href={`/work/${g.project.slug}`}
+                    className="project project--has-gallery"
+                  >
+                    {renderProjectInner(g.project)}
+                    <div
+                      className="project__gallery"
+                      aria-label={`${g.project.title} gallery`}
+                    >
+                      {g.gallery.map((src, i) => (
+                        <figure key={src} className="project__gallery-item">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={src}
+                            alt={`${g.project.title}, ${i + 1} of ${g.gallery.length}`}
+                            loading="lazy"
+                          />
+                        </figure>
+                      ))}
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          );
+        })()}
       </section>
 
       <section

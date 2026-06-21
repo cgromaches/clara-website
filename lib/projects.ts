@@ -33,6 +33,11 @@ export type ProjectLink = {
   kind: LinkKind;
 };
 
+export type ProjectCta = {
+  label: string;
+  href: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -42,6 +47,7 @@ export type Project = {
   body: string;
   partners?: string[];
   links?: ProjectLink[];
+  cta?: ProjectCta;
   cover?: string;
   coverAlt?: string;
 };
@@ -79,8 +85,12 @@ export const projects: Project[] = [
     year: "active",
     place: "Berlin",
     register: "system-design",
-    body: "Venture collective unwinding enclosures: applied research, artistic inquiry and real-world demonstration to help communities take land and housing back into common ownership. Contributor.",
+    body: "Venture collective working from place to find where land and housing stay locked in speculation, then building the legal, cultural, economic and digital scaffolding that lets communities hold them as commons. Headline frame: unwinding enclosures. Contributor.",
     links: [{ label: "komma.systems", href: "https://komma.systems", kind: "site" }],
+    cta: {
+      label: "Partner inquiries",
+      href: "mailto:clara@komma.systems?subject=Komma — partnership inquiry",
+    },
   },
   {
     slug: "exclosure",
@@ -97,7 +107,11 @@ export const projects: Project[] = [
     year: "active",
     place: "Catalonia",
     register: "system-design",
-    body: "Komma pilot. Routing a small share of tourism value into permanently affordable housing in Catalonia, as shared responsibility, before displacement begins. Phase 1: mapping partners across municipalities, housing co-ops and tourism operators.",
+    body: "A Komma pilot exploring whether tourism revenue can be redirected toward permanently affordable housing, as shared responsibility, before displacement begins. The mechanism combines patient up-front capital, ongoing tourism-aligned contributions, auditable housing outcomes and a locally accountable governance layer. Starting in Catalonia, where tourism moves €10.4bn a year and 25% of the tourist tax goes to housing. Phase 1, Sensing in Progress: mapping partners across municipalities, housing co-ops, tourism operators and ethical finance.",
+    cta: {
+      label: "Partner inquiries",
+      href: "mailto:clara@komma.systems?subject=Tourism × Housing pilot — partnership inquiry",
+    },
   },
   {
     slug: "dharavi",
@@ -105,7 +119,7 @@ export const projects: Project[] = [
     year: "active",
     place: "Mumbai",
     register: "system-design",
-    body: "Komma pilot. Civic infrastructure prototype, co-built with Dharavi residents and local partners, to reinforce rights against top-down redevelopment. Three layers: community cadastre, governance layer, economic evidencing.",
+    body: "Komma exploratory inquiry. Blockchain-based civic infrastructure designed to act before displacement, to reinforce Dharavi residents' rights against dispossession. Three possible mechanisms, all co-designed with residents: a community cadastre documenting lived tenure, a governance layer giving collective actors recognised voice, and an evidencing layer that defends Dharavi's place-based economy (estimated at $0.7 to $1B a year). Currently mapping local partners. Open thread.",
   },
   {
     slug: "dorg",
