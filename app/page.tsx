@@ -186,9 +186,10 @@ export default function Home() {
           housing collectives, and distributed technologies.
         </p>
         <p className="hero__mission">
-          From Catalonia, I work on housing and land commons: co-operative
-          incubation, place-based policy, bio-architecture, and the system
-          design that lets it scale.
+          From Catalonia, I design the systems and pilots that advance
+          housing and land commons, drawing on years across co-operative
+          incubation, place-based policy, bio-architecture and edge
+          technologies.
         </p>
       </header>
 
@@ -201,12 +202,11 @@ export default function Home() {
             >
               System design
             </span>
-            <h3 className="register__title">Where the three meet.</h3>
+            <h3 className="register__title">Where the practice converges.</h3>
             <p className="register__body">
-              Designing the mechanisms that hold a project together: a
-              protective institutional membrane, a value-routing instrument,
-              a civic infrastructure prototype. Komma is where most of this
-              work lives.
+              Designing the mechanisms and running the pilots that move
+              housing and land commons forward. Komma is where most of
+              this work lives now.
             </p>
           </div>
           <div>
