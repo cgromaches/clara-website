@@ -1,11 +1,8 @@
 import Link from "next/link";
 import {
-  REGISTER_LABEL,
   REGISTER_COLOR,
-  REGISTER_ORDER,
   getProjectGallery,
   getHeroProjects,
-  getArchiveProjects,
 } from "@/lib/projects";
 
 
@@ -188,7 +185,7 @@ export default function Home() {
         <span className="nav__brand">Clara G</span>
         <div className="nav__links">
           <a href="#work">Work</a>
-          <a href="#archive">Archive</a>
+          <Link href="/archive">Archive</Link>
           <a href="#comms">Comms</a>
           <a href="#contact">Contact</a>
         </div>
@@ -373,45 +370,6 @@ export default function Home() {
             </div>
           );
         })()}
-      </section>
-
-      <section
-        className="section"
-        id="archive"
-        aria-labelledby="archive-heading"
-      >
-        <h2 className="h2" id="archive-heading">
-          Archive
-        </h2>
-        {REGISTER_ORDER.map((reg) => {
-          const items = getArchiveProjects().filter(
-            (p) => p.register === reg,
-          );
-          if (items.length === 0) return null;
-          return (
-            <div key={reg} className="archive__group">
-              <span
-                className="eyebrow archive__group-label"
-                style={{ color: REGISTER_COLOR[reg] }}
-              >
-                {REGISTER_LABEL[reg]}
-              </span>
-              <ul className="archive__list">
-                {items.map((p) => (
-                  <li key={p.slug}>
-                    <Link href={`/work/${p.slug}`} className="archive__item">
-                      <span className="archive__title">{p.title}</span>
-                      <span className="archive__meta">
-                        {p.place}
-                        {p.year !== undefined ? ` · ${p.year}` : ""}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
       </section>
 
       <section

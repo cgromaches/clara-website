@@ -457,6 +457,7 @@ export const HERO_ORDER: string[] = [
   "tourism-housing",
   "exclosure",
   "dharavi",
+  "dorg",
   "fortia",
   "la-cellera-de-ter",
   "sant-miquel-de-campmajor",
