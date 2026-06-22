@@ -126,7 +126,7 @@ const workshops: WritingItem[] = [
   {
     date: "2026",
     title: "Thresholds Workshop",
-    kind: "The Hus Institute, Vaduz",
+    kind: "The Hus Institute, Liechtenstein",
     href: "https://thehus.institute/",
   },
 ];
