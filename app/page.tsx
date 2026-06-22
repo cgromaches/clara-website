@@ -75,7 +75,7 @@ const research: WritingItem[] = [
     date: "2024",
     title: "Network Sovereignties as Vehicles for Land and Housing Commons: The Case of Catalonian Fundació Emprius",
     kind: "SOAM Residency, with BlockchainGov. Edited by Sofia Cossar.",
-    href: "https://soam.earth/residency/",
+    href: "https://soam-essays.vercel.app/essays/03_clara/",
   },
   {
     date: "2016 to 2017",
