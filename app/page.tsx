@@ -21,7 +21,7 @@ const talks: WritingItem[] = [
     date: "2025",
     title: "Decommodifying housing and land",
     kind: "Collective Finance Gathering 3, Commons Hub Austria",
-    href: "https://luma.com/8b7u93xt?tk=zBWUVi",
+    href: "https://collaborative-finance.net/",
   },
   {
     date: "2024",
