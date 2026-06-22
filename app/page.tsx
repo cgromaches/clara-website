@@ -81,7 +81,7 @@ const research: WritingItem[] = [
     date: "2016 to 2017",
     title:
       "Intergenerational social center with senior cohousing residence",
-    kind: "University Capstone",
+    kind: "University of Girona",
   },
 ];
 
