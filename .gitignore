@@ -38,3 +38,7 @@ DESIGN_BRIEF.md
 
 # TypeScript
 *.tsbuildinfo
+
+# Stray local notes
+*.local.md
+diagnostico*.md
