@@ -76,7 +76,6 @@ const personJsonLd = {
   sameAs: [
     "https://twitter.com/claragromaches",
     "https://www.linkedin.com/in/cgromaches/",
-    "https://www.instagram.com/claragromaches/",
   ],
   knowsAbout: [
     "Housing commons",
