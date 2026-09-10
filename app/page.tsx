@@ -412,6 +412,14 @@ export default function Home() {
             >
               LinkedIn
             </a>
+            <a
+              className="footer__link"
+              href="https://www.instagram.com/claragromaches/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
           </div>
           <div className="footer__col">
             <span className="footer__label">Based</span>
