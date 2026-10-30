@@ -342,14 +342,6 @@ export default function Home() {
               Instagram
             </a>
           </div>
-          <div className="footer__col">
-            <span className="footer__label">Based</span>
-            <p className="footer__based">
-              Clara is based in Catalonia. Komma is registered in Germany
-              and Liechtenstein. Working with municipalities, foundations
-              and venture collectives across Europe and beyond.
-            </p>
-          </div>
         </div>
       </footer>
     </div>
