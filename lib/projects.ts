@@ -1,29 +1,12 @@
-export type Register =
-  | "system-design"
-  | "edge-tech"
-  | "housing-commons"
-  | "regen-architecture";
+import {
+  type Register,
+  REGISTER_LABEL,
+  REGISTER_COLOR,
+  REGISTER_ORDER,
+} from "./registers";
 
-export const REGISTER_LABEL: Record<Register, string> = {
-  "system-design": "System Design",
-  "edge-tech": "Edge Technologies",
-  "housing-commons": "Housing Commons",
-  "regen-architecture": "Regenerative Architecture",
-};
-
-export const REGISTER_COLOR: Record<Register, string> = {
-  "system-design": "var(--ink)",
-  "edge-tech": "var(--signal)",
-  "housing-commons": "var(--earth)",
-  "regen-architecture": "var(--ink-soft)",
-};
-
-export const REGISTER_ORDER: Register[] = [
-  "system-design",
-  "edge-tech",
-  "housing-commons",
-  "regen-architecture",
-];
+export { REGISTER_LABEL, REGISTER_COLOR, REGISTER_ORDER };
+export type { Register };
 
 export type LinkKind = "site" | "social" | "press" | "gallery" | "video" | "repo";
 
@@ -50,6 +33,12 @@ export type Project = {
   year?: number | string;
   place: string;
   register: Register;
+  // Additional categories this project also belongs to (e.g. architectural
+  // photography that reads as both architecture and art).
+  tags?: Register[];
+  // Shown only in Selected Works, kept out of the Archive (e.g. the combined
+  // consultancy sheet whose individual projects live in the Archive).
+  heroOnly?: boolean;
   body: string;
   partners?: string[];
   links?: ProjectLink[];
@@ -100,6 +89,21 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "network-sovereignties",
+    title: "Network Sovereignties for Land and Housing Commons",
+    year: 2024,
+    place: "SOAM Residency, with BlockchainGov",
+    register: "system-design",
+    body: "Research essay on network sovereignties as vehicles for land and housing commons, through the case of Catalonia's Fundació Emprius. With BlockchainGov, edited by Sofia Cossar.",
+    links: [
+      {
+        label: "Read the essay",
+        href: "https://soam-essays.vercel.app/essays/03_clara/",
+        kind: "press",
+      },
+    ],
+  },
+  {
     slug: "exclosure",
     title: "Exclosure",
     year: "active",
@@ -129,10 +133,10 @@ export const projects: Project[] = [
   {
     slug: "dharavi",
     title: "Ex:Risk Dharavi",
-    year: "exploratory phase",
+    year: 2026,
     place: "Mumbai",
-    register: "system-design",
-    body: "Komma exploratory inquiry. Civic infrastructure prototype to reinforce Dharavi residents' rights against dispossession, designed to act before displacement. Three possible mechanisms co-designed with residents: a community cadastre, a governance layer, and an evidencing layer for the lane-based economy. Open thread.",
+    register: "art",
+    body: "Participatory generative light installation, first in the Ex:Risk series, on permanence and belonging in territories at risk of dispossession. Built with Meld and Kair, and shown at Devcon 8 in Mumbai as part of the Ethereum Foundation Artist Cohort.",
     links: [
       { label: "komma.systems", href: "https://komma.systems", kind: "site" },
     ],
@@ -140,10 +144,10 @@ export const projects: Project[] = [
   {
     slug: "dorg",
     title: "dOrg",
-    year: "since 2021",
-    place: "Service DAO",
+    year: "2021 to 2026",
+    place: "Startup DAO",
     register: "edge-tech",
-    body: "Ops team at a service DAO. A web3-native organisational form: distributed contributors, mechanism-based coordination, no boss.",
+    body: "Ops team at a startup DAO. A web3-native organisational form: distributed contributors, mechanism-based coordination, no boss.",
     links: [{ label: "dorg.tech", href: "https://www.dorg.tech/", kind: "site" }],
   },
   {
@@ -306,6 +310,11 @@ export const projects: Project[] = [
     },
     links: [
       { label: "emprius.cat", href: "https://emprius.cat/", kind: "site" },
+      {
+        label: "Guia d'habitatge cooperatiu al món rural (guide)",
+        href: "https://emprius.cat/guia-habitatge-cooperatiu/",
+        kind: "press",
+      },
     ],
   },
   {
@@ -327,6 +336,7 @@ export const projects: Project[] = [
     title: "Girona House",
     place: "Girona, Catalonia",
     register: "regen-architecture",
+    tags: ["art"],
     body: "Architecture and photography.",
     partners: ["Auquer i Prats Arquitectures"],
     links: [
@@ -342,6 +352,7 @@ export const projects: Project[] = [
     title: "Earth House",
     place: "Catalonia",
     register: "regen-architecture",
+    tags: ["art"],
     body: "Architectural photography of an earthen-walled house.",
     partners: ["Auquer i Prats Arquitectures"],
     links: [
@@ -437,6 +448,7 @@ export const projects: Project[] = [
     title: "Barragán Studio",
     place: "Mexico City",
     register: "regen-architecture",
+    tags: ["art"],
     body: "Architectural photography of Luis Barragán's studio.",
     links: [
       {
@@ -446,6 +458,48 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "entropy-india",
+    title: "Entropy and urban landscape in India",
+    year: 2019,
+    place: "India, exhibited in Catalonia",
+    register: "art",
+    tags: ["regen-architecture"],
+    body: "Architectural and urban-landscape photography from India, commissioned for L'Àlbum de l'arquitecte and exhibited at the Col·legi d'Arquitectes de Catalunya in Girona, Figueres and Olot.",
+    links: [
+      {
+        label: "panorama.pm",
+        href: "https://panorama.pm/project/entropy-and-urban-landscape-in-india/",
+        kind: "gallery",
+      },
+    ],
+  },
+  {
+    slug: "lluernia",
+    title: "Lluèrnia",
+    year: 2023,
+    place: "Olot, Catalonia",
+    register: "art",
+    body: "Commissioned light work for Lluèrnia, Olot's festival of fire and light, shown as part of a collective presentation.",
+  },
+  {
+    slug: "rural-housing-consultancy",
+    title: "Rural co-op viability consultancies",
+    year: "ongoing",
+    place: "Catalonia",
+    register: "housing-commons",
+    heroOnly: true,
+    body: "Project-viability and policy research helping rural councils activate social housing co-ops on municipal land and buildings, with Grupo Integral and Undos Arquitectura. A single engagement across several municipalities.",
+    links: [
+      {
+        label: "Sant Miquel de Campmajor",
+        href: "/work/sant-miquel-de-campmajor",
+        kind: "site",
+      },
+      { label: "Sarrià de Ter", href: "/work/sarria-de-ter", kind: "site" },
+      { label: "La Pera", href: "/work/la-pera", kind: "site" },
+    ],
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
@@ -453,18 +507,26 @@ export function getProject(slug: string): Project | undefined {
 }
 
 export const HERO_ORDER: string[] = [
-  "komma",
-  "tourism-housing",
-  "exclosure",
-  "dharavi",
-  "dorg",
-  "fortia",
-  "la-cellera-de-ter",
-  "sant-miquel-de-campmajor",
-  "emprius-fundacio",
+  // Regenerative architecture
   "earth-house",
   "girona-house",
   "verges-house",
+  // Art
+  "dharavi",
+  "entropy-india",
+  "lluernia",
+  // Housing commons
+  "fortia",
+  "la-cellera-de-ter",
+  "rural-housing-consultancy",
+  "emprius-fundacio",
+  // Edge technologies
+  "w3st",
+  "communitaz",
+  // System design
+  "network-sovereignties",
+  "tourism-housing",
+  "exclosure",
 ];
 
 export function getHeroProjects(): Project[] {

@@ -6,6 +6,7 @@
   --rule: rgba(26, 24, 21, 0.14);
   --earth: #a5462a;
   --signal: #2b6b5c;
+  --art: #9c7a3c;
   --paper-inverse: #141210;
   --ink-inverse: #f4efe4;
 
@@ -211,11 +212,45 @@ p {
   margin-bottom: 28px;
 }
 
+.work__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.work__filter {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-softer);
+  background: transparent;
+  border: 1px solid var(--ink-softer);
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.work__filter:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.work__filter.is-active {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
 .work__grid {
   display: flex;
   flex-direction: column;
   gap: 80px;
-  margin-top: 28px;
+  margin-top: 40px;
 }
 
 .work__pair {

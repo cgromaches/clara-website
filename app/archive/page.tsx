@@ -42,7 +42,11 @@ export default function ArchivePage() {
         </p>
 
         {REGISTER_ORDER.map((reg) => {
-          const items = projects.filter((p) => p.register === reg);
+          const items = projects.filter(
+            (p) =>
+              !p.heroOnly &&
+              (p.register === reg || (p.tags ?? []).includes(reg)),
+          );
           if (items.length === 0) return null;
           return (
             <div key={reg} className="archive__group">
