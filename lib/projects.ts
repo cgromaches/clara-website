@@ -489,7 +489,7 @@ export const projects: Project[] = [
     place: "Catalonia",
     register: "housing-commons",
     heroOnly: true,
-    body: "Project-viability and policy research helping rural councils activate social housing co-ops on municipal land and buildings, with Grupo Integral and Undos Arquitectura. A single engagement across several municipalities.",
+    body: "Advising rural municipalities on policy-making for affordable housing, and enabling the co-operatives that deliver it, on municipal land and buildings, with Grupo Integral and Undós Arquitectura. A single engagement across several municipalities.",
     links: [
       {
         label: "Sant Miquel de Campmajor",
@@ -522,7 +522,6 @@ export const HERO_ORDER: string[] = [
   "exclosure",
   // Art (at the end)
   "dharavi",
-  "entropy-india",
 ];
 
 export function getHeroProjects(): Project[] {

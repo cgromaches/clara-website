@@ -226,7 +226,10 @@ export default function Home() {
         </p>
       </header>
 
-      <section className="section">
+      <section className="section" aria-labelledby="expertise-heading">
+        <h2 className="h2" id="expertise-heading">
+          Expertise
+        </h2>
         <div className="registers">
           <div>
             <span className="eyebrow">Regenerative architecture</span>
@@ -234,14 +237,12 @@ export default function Home() {
             <p className="register__body">
               Bio-architecture: vernacular construction reinterpreted in a
               contemporary architectural language, with native materials of
-              proven durability, allowed to age with dignity. Photography and
-              spatial art to read places, and to give this kind of work its
-              due.
+              proven durability, allowed to age with dignity.
             </p>
           </div>
           <div>
             <span className="eyebrow">Housing commons</span>
-            <h3 className="register__title">Coordinating viability</h3>
+            <h3 className="register__title">Viability and policy advisory</h3>
             <p className="register__body">
               Project viability research, community incubation and policy
               work for social housing co-ops, alongside rural municipalities,
@@ -250,14 +251,12 @@ export default function Home() {
           </div>
           <div>
             <span className="eyebrow">Edge technologies</span>
-            <h3 className="register__title">
-              Digital cooperative business
-            </h3>
+            <h3 className="register__title">Blockchain and AI</h3>
             <p className="register__body">
-              Running a co-operative, blockchain-native startup at dOrg (2021
-              to 2026), and prototyping community housing DAOs. Now working
-              AI-native at Komma, building toward an AI-operated business and
-              coordination.
+              Deep, hands-on work in blockchain and AI: a blockchain-native
+              startup at dOrg from 2021 to 2026, community housing DAO
+              prototypes, and now AI-native practice at Komma, building toward
+              an AI-operated business and coordination.
             </p>
           </div>
           <div>
