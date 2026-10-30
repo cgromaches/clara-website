@@ -1,13 +1,9 @@
 import Link from "next/link";
-import {
-  REGISTER_COLOR,
-  getProjectGallery,
-  getHeroProjects,
-} from "@/lib/projects";
+import { getProjectGallery, getHeroProjects } from "@/lib/projects";
 import SelectedWorks from "./SelectedWorks";
 
-// Fortià keeps its text tile but not its building gallery on the landing page.
-const NO_GALLERY = new Set(["fortia"]);
+// Slugs whose landing-page tile should render as text only (no gallery).
+const NO_GALLERY = new Set<string>([]);
 
 
 type WritingItem = {
@@ -233,13 +229,8 @@ export default function Home() {
       <section className="section">
         <div className="registers">
           <div>
-            <span
-              className="eyebrow"
-              style={{ color: REGISTER_COLOR["regen-architecture"] }}
-            >
-              Regenerative architecture
-            </span>
-            <h3 className="register__title">A contemporary vernacular.</h3>
+            <span className="eyebrow">Regenerative architecture</span>
+            <h3 className="register__title">A contemporary vernacular</h3>
             <p className="register__body">
               Bio-architecture: vernacular construction reinterpreted in a
               contemporary architectural language, with native materials of
@@ -249,13 +240,8 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <span
-              className="eyebrow"
-              style={{ color: REGISTER_COLOR["housing-commons"] }}
-            >
-              Housing commons
-            </span>
-            <h3 className="register__title">Coordinating viability.</h3>
+            <span className="eyebrow">Housing commons</span>
+            <h3 className="register__title">Coordinating viability</h3>
             <p className="register__body">
               Project viability research, community incubation and policy
               work for social housing co-ops, alongside rural municipalities,
@@ -263,14 +249,9 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <span
-              className="eyebrow"
-              style={{ color: REGISTER_COLOR["edge-tech"] }}
-            >
-              Edge technologies
-            </span>
+            <span className="eyebrow">Edge technologies</span>
             <h3 className="register__title">
-              Digital cooperative business.
+              Digital cooperative business
             </h3>
             <p className="register__body">
               Running a co-operative, blockchain-native startup at dOrg (2021
@@ -280,13 +261,8 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <span
-              className="eyebrow"
-              style={{ color: REGISTER_COLOR["system-design"] }}
-            >
-              System design
-            </span>
-            <h3 className="register__title">Where the practice converges.</h3>
+            <span className="eyebrow">System design</span>
+            <h3 className="register__title">Where the practice converges</h3>
             <p className="register__body">
               Designing the legal, social, economic and technical mechanisms
               that advance housing and land commons, and running the pilots

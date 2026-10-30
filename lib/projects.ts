@@ -511,22 +511,18 @@ export const HERO_ORDER: string[] = [
   "earth-house",
   "girona-house",
   "verges-house",
-  // Art
-  "dharavi",
-  "entropy-india",
-  "lluernia",
   // Housing commons
   "fortia",
   "la-cellera-de-ter",
   "rural-housing-consultancy",
   "emprius-fundacio",
-  // Edge technologies
-  "w3st",
-  "communitaz",
   // System design
   "network-sovereignties",
   "tourism-housing",
   "exclosure",
+  // Art (at the end)
+  "dharavi",
+  "entropy-india",
 ];
 
 export function getHeroProjects(): Project[] {
